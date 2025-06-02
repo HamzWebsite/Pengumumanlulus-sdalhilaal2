@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pengumuman Kelulusan SD Al Hilaal 2 Ambon 2024/2025</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f7f9fc;
+      text-align: center;
+      padding: 50px;
+    }
+
+    h1 {
+      color: #2c3e50;
+    }
+
+    .login-box {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      display: inline-block;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      width: 250px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #3498db;
+      border: none;
+      color: #fff;
+      border-radius: 5px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+
+    .result {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #2e7d32;
+    }
+
+    .not-found {
+      color: red;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Pengumuman Kelulusan</h1>
+  <h2>SD Al Hilaal 2 Ambon<br>Tahun Pelajaran 2024/2025</h2>
+
+  <div class="login-box">
+    <p>Masukkan NISN Anda:</p>
+    <input type="text" id="nisnInput" placeholder="Contoh: 3128420644">
+    <br>
+    <button onclick="cekKelulusan()">Lihat Hasil</button>
+
+    <div id="hasil" class="result"></div>
+    <div id="notFound" class="not-found"></div>
+  </div>
+
+  <script>
+    const dataSiswa = {
+      "3128420644": { nama: "Abi Rama Juan Novar", status: "LULUS" },
+      "3135189965": { nama: "Ahmad Rizky Alfarizi", status: "LULUS" },
+      "0125134232": { nama: "Akbar", status: "LULUS" },
+      "3129843548": { nama: "Aprilnistika Pratama", status: "LULUS" },
+      "3139214098": { nama: "Aqilla Bin Haji", status: "LULUS" },
+      "3137507974": { nama: "Azifa", status: "LULUS" },
+      "3136261289": { nama: "Aziz Azzamy Syauqi", status: "LULUS" },
+      "3123678735": { nama: "Dimas Jamarudin", status: "LULUS" },
+      "3134917492": { nama: "Ifliyah Sidikyah", status: "LULUS" },
+      "0134488985": { nama: "Juang Panggede", status: "LULUS" },
+      "3124287484": { nama: "Khansa Rafani", status: "LULUS" },
+      "3134367575": { nama: "La Ode Muhliyadil", status: "LULUS" },
+      "3135442977": { nama: "Merlin", status: "LULUS" },
+      "3102926837": { nama: "Muhamad Ali Safir", status: "LULUS" },
+      "3134376477": { nama: "Muhamad Nizam Soleman", status: "LULUS" },
+      "3094875886": { nama: "Muhamad Rizky", status: "LULUS" },
+      "3121955984": { nama: "Muhammad Abdul Rahim", status: "LULUS" },
+      "3122170320": { nama: "Muhammad Tamrin Firdaus Tahalua", status: "LULUS" },
+      "3138459720": { nama: "Muzdalifa", status: "LULUS" },
+      "3135366911": { nama: "Naswa Selvia Indah Sari", status: "LULUS" },
+      "3121844078": { nama: "Pratama Al Husen Sangadji", status: "LULUS" },
+      "3121068971": { nama: "Putri Alya Sahfika", status: "LULUS" },
+      "3139520813": { nama: "Putry", status: "LULUS" },
+      "3125506071": { nama: "Silviana Rahmawati La Ismail", status: "LULUS" }
+    };
+
+    function cekKelulusan() {
+      const nisn = document.getElementById('nisnInput').value.trim();
+      const hasilDiv = document.getElementById('hasil');
+      const notFoundDiv = document.getElementById('notFound');
+
+      hasilDiv.innerHTML = '';
+      notFoundDiv.innerHTML = '';
+
+      if (dataSiswa[nisn]) {
+        const siswa = dataSiswa[nisn];
+        hasilDiv.innerHTML = `<strong>Nama:</strong> ${siswa.nama}<br><strong>Status:</strong> ${siswa.status}`;
+      } else {
+        notFoundDiv.innerHTML = "NISN tidak ditemukan. Silakan periksa kembali.";
+      }
+    }
+  </script>
+</body>
+</html>
